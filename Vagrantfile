@@ -119,10 +119,10 @@ Vagrant.configure("2") do |config|
  
   config.vm.define :master do |master|
     master.vm.box = "chef/centos-6.6"
-    master.vm.provider :aws do |v|
+    master.vm.provider :vmware_fusion do |v|
       v.vmx["memsize"]  = "8192"
     end
-    master.vm.provider :aws do |v|
+    master.vm.provider :virtualbox do |v|
       v.name = "vm-cluster-node1.vmcluster"
       v.customize ["modifyvm", :id, "--memory", "8192"]
     end
